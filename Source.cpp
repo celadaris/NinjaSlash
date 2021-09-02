@@ -5,24 +5,24 @@
 using namespace Ogre;
 using namespace OgreBites;
 
-class OgreTutorial : public OgreBites::ApplicationContext, public OgreBites::InputListener
+class NinjaSlash : public OgreBites::ApplicationContext, public OgreBites::InputListener
 {
 private:
     Entity* ninjaEntity = NULL;
     AnimationState* mAnimationState = NULL;
     InputListener* mInputDevice = NULL;
 public:
-    OgreTutorial();
+    NinjaSlash();
     bool mousePressed(const MouseButtonEvent& evt);
     void setup();
     void frameRendered(const Ogre::FrameEvent& evt);
 };
 
-OgreTutorial::OgreTutorial() : OgreBites::ApplicationContext()
+NinjaSlash::NinjaSlash() : OgreBites::ApplicationContext()
 {
 }
 
-bool OgreTutorial::mousePressed(const MouseButtonEvent& evt)
+bool NinjaSlash::mousePressed(const MouseButtonEvent& evt)
 {
     if (evt.button == OgreBites::BUTTON_LEFT)
     {
@@ -32,7 +32,7 @@ bool OgreTutorial::mousePressed(const MouseButtonEvent& evt)
     return true;
 }
 
-void OgreTutorial::setup()
+void NinjaSlash::setup()
 {
     // do not forget to call the base first
     OgreBites::ApplicationContext::setup();
@@ -65,7 +65,7 @@ void OgreTutorial::setup()
     addInputListener(this);
 }
 
-void OgreTutorial::frameRendered(const Ogre::FrameEvent& evt)
+void NinjaSlash::frameRendered(const Ogre::FrameEvent& evt)
 {
     if (mAnimationState->getEnabled())
     {
@@ -80,7 +80,7 @@ void OgreTutorial::frameRendered(const Ogre::FrameEvent& evt)
 
 int main()
 {
-    OgreTutorial app;
+    NinjaSlash app;
     app.initApp();
     app.getRoot()->startRendering();
     app.closeApp();
